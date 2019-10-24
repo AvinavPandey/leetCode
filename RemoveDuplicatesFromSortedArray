@@ -1,0 +1,32 @@
+package leetCode;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class RemoveDuplicatesFromSortedArray {
+
+	public static void main(String[] args) {
+		int arr[] = {1,1,2};
+		RemoveDuplicatesFromSortedArray removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray();
+		System.out.println(removeDuplicatesFromSortedArray.removeDuplicates(arr));
+	}
+	
+	public int removeDuplicates(int[] nums) {
+		Set<Integer> h = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			h.add(nums[i]);	
+		}
+		//nums = new int [h.size()];
+		Iterator<Integer> i = h.iterator();
+		int index = 0;
+		while(i.hasNext()) {
+			nums[index] = i.next();
+			index += index;
+			//System.out.println(nums[index]);
+		}
+		return nums.length;
+		
+	}
+
+}
